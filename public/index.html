@@ -79,15 +79,18 @@
             --surface-hover: #333333;
             --border: #333333;
             --border-light: #404040;
-            --shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-            --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.6);
-            --shadow-primary: 0 4px 20px rgba(0, 212, 170, 0.2);
-            --shadow-primary-hover: 0 8px 30px rgba(0, 212, 170, 0.3);
+            --shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            --shadow-hover: 0 4px 20px rgba(0, 0, 0, 0.5);
+            --shadow-primary: 0 2px 10px rgba(0, 212, 170, 0.15);
+            --shadow-primary-hover: 0 4px 20px rgba(0, 212, 170, 0.25);
             --gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             --gradient-dark: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
             --max-width: 1200px;
             --spacing: 1rem;
-            --border-radius: 12px;
+            --spacing-sm: 0.75rem;
+            --spacing-xs: 0.5rem;
+            --border-radius: 8px;
+            --border-radius-sm: 6px;
         }
 
         /* Reset & Base Styles */
@@ -113,18 +116,19 @@
         /* Typography */
         h1, h2, h3, h4, h5, h6 {
             font-weight: 700;
-            line-height: 1.3;
-            margin-bottom: 1rem;
+            line-height: 1.2;
+            margin-bottom: var(--spacing-sm);
         }
 
-        h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
-        h2 { font-size: clamp(2rem, 4vw, 3rem); }
-        h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+        h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+        h2 { font-size: clamp(1.75rem, 4vw, 2.5rem); }
+        h3 { font-size: clamp(1.25rem, 3vw, 1.75rem); }
 
         p {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
+            margin-bottom: var(--spacing);
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
             color: var(--text-light);
+            line-height: 1.6;
         }
 
         a {
@@ -145,7 +149,7 @@
         }
 
         .section {
-            padding: 5rem 0;
+            padding: 3rem 0;
         }
 
         .section-alt {
@@ -212,7 +216,7 @@
 
         /* Hero Section */
         .hero {
-            padding: 8rem 0 6rem;
+            padding: 5rem 0 3rem;
             background: var(--gradient-dark);
             text-align: center;
             position: relative;
@@ -241,7 +245,7 @@
         }
 
         .hero h1 {
-            margin-bottom: 1.5rem;
+            margin-bottom: var(--spacing);
             background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -249,17 +253,17 @@
         }
 
         .hero .tagline {
-            font-size: 1.5rem;
+            font-size: clamp(1.2rem, 3vw, 1.4rem);
             color: var(--text-light);
-            margin-bottom: 2rem;
+            margin-bottom: var(--spacing);
             font-weight: 300;
         }
 
         .hero .description {
-            font-size: 1.25rem;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
             color: var(--text-light);
-            margin-bottom: 3rem;
-            max-width: 800px;
+            margin-bottom: 2rem;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -267,14 +271,14 @@
         /* Buttons */
         .btn {
             display: inline-block;
-            padding: 1rem 2rem;
+            padding: var(--spacing-sm) var(--spacing);
             border-radius: var(--border-radius);
             font-weight: 600;
             text-decoration: none;
             transition: all 0.3s ease;
             border: 2px solid transparent;
             cursor: pointer;
-            font-size: 1.1rem;
+            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
         }
 
         .btn-primary {
@@ -311,7 +315,7 @@
         .card {
             background: var(--surface);
             border-radius: var(--border-radius);
-            padding: 2rem;
+            padding: var(--spacing);
             box-shadow: var(--shadow);
             transition: all 0.3s ease;
             border: 1px solid var(--border);
@@ -325,9 +329,76 @@
 
         .card-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing);
+            margin-top: 2rem;
+        }
+
+        /* Bot Lineage Grid */
+        .bot-lineage-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-sm);
+            margin-top: 1.5rem;
+        }
+
+        .bot-lineage-card {
+            background: var(--surface);
+            border-radius: var(--border-radius-sm);
+            padding: var(--spacing-sm);
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bot-lineage-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient);
+        }
+
+        .bot-lineage-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--border-light);
+        }
+
+        .bot-lineage-card h3 {
+            font-size: 1.1rem;
+            margin: var(--spacing-xs) 0;
+        }
+
+        .bot-lineage-card p {
+            font-size: 0.9rem;
+            margin-bottom: var(--spacing-xs);
+            line-height: 1.4;
+        }
+
+        .code-preview {
+            background: #0a0a0a;
+            border-radius: var(--border-radius-sm);
+            padding: var(--spacing-xs);
+            margin: var(--spacing-xs) 0;
+            border: 1px solid var(--border);
+        }
+
+        .code-preview code {
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--primary-color);
+        }
+
+        .btn-compact {
+            padding: var(--spacing-xs) var(--spacing-sm);
+            font-size: 0.85rem;
+            width: 100%;
+            margin-top: var(--spacing-xs);
         }
 
         /* Bot Cards */
@@ -350,30 +421,32 @@
             display: inline-block;
             background: var(--primary-color);
             color: white;
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.875rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
             font-weight: 600;
-            margin-bottom: 1rem;
+            margin-bottom: var(--spacing-sm);
         }
 
         .bot-stats {
             display: flex;
-            gap: 1rem;
-            margin: 1rem 0;
-            font-size: 0.9rem;
+            gap: var(--spacing-xs);
+            margin: var(--spacing-sm) 0;
+            font-size: 0.85rem;
             color: var(--text-lighter);
+            flex-wrap: wrap;
         }
 
         /* Code Blocks */
         .code-block {
             background: #0f0f0f;
             color: #f8f8f2;
-            padding: 1.5rem;
-            border-radius: var(--border-radius);
+            padding: var(--spacing-sm);
+            border-radius: var(--border-radius-sm);
             font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.85rem;
             overflow-x: auto;
-            margin: 1.5rem 0;
+            margin: var(--spacing) 0;
             position: relative;
             border: 1px solid var(--border);
         }
@@ -391,46 +464,191 @@
         /* Features Grid */
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: var(--spacing);
+            margin-top: 2rem;
         }
 
         .feature-icon {
-            width: 3rem;
-            height: 3rem;
+            width: 2.5rem;
+            height: 2.5rem;
             background: var(--gradient);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
+            margin-bottom: var(--spacing-sm);
+            font-size: 1.25rem;
             color: white;
         }
 
-        /* Evolution Timeline */
-        .evolution-timeline {
-            position: relative;
-            padding: 2rem 0;
+        /* Features Compact Grid */
+        .features-compact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-sm);
+            margin-top: 1.5rem;
         }
 
-        .evolution-step {
+        .feature-compact {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-sm);
+            background: var(--surface);
+            border-radius: var(--border-radius-sm);
+            padding: var(--spacing-sm);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .feature-compact:hover {
+            transform: translateY(-2px);
+            border-color: var(--primary-color);
+            box-shadow: var(--shadow);
+        }
+
+        .feature-icon-compact {
+            width: 2rem;
+            height: 2rem;
+            background: var(--gradient);
+            border-radius: 50%;
             display: flex;
             align-items: center;
-            margin: 2rem 0;
-            position: relative;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: white;
+            flex-shrink: 0;
         }
 
-        .evolution-step::before {
-            content: '→';
-            font-size: 2rem;
+        .feature-content {
+            flex: 1;
+        }
+
+        .feature-content h4 {
+            font-size: 1rem;
+            margin: 0 0 var(--spacing-xs) 0;
+            color: var(--text-dark);
+            line-height: 1.3;
+        }
+
+        .feature-content p {
+            font-size: 0.85rem;
+            margin: 0;
+            color: var(--text-lighter);
+            line-height: 1.4;
+        }
+
+        /* Evolution Timeline Compact */
+        .evolution-timeline-compact {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            padding: var(--spacing) 0;
+            flex-wrap: wrap;
+        }
+
+        .evolution-step-compact {
+            flex: 1;
+            min-width: 150px;
+            max-width: 200px;
+        }
+
+        .evolution-card {
+            background: var(--surface);
+            border-radius: var(--border-radius-sm);
+            padding: var(--spacing-sm);
+            text-align: center;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .evolution-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--primary-color);
+        }
+
+        .evolution-card h4 {
+            font-size: 1rem;
+            margin: var(--spacing-xs) 0;
+            color: var(--text-dark);
+        }
+
+        .evolution-card p {
+            font-size: 0.8rem;
+            margin: 0;
+            color: var(--text-lighter);
+        }
+
+        .evolution-arrow {
+            font-size: 1.5rem;
             color: var(--primary-color);
-            margin: 0 1rem;
+            font-weight: bold;
         }
 
-        .evolution-step:first-child::before {
-            display: none;
+        /* Community Compact */
+        .community-compact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-sm);
+            margin-top: 1.5rem;
+        }
+
+        .community-card {
+            background: var(--surface);
+            border-radius: var(--border-radius-sm);
+            padding: var(--spacing);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .community-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--primary-color);
+            box-shadow: var(--shadow);
+        }
+
+        .community-card h4 {
+            font-size: 1.1rem;
+            margin: 0 0 var(--spacing-xs) 0;
+            color: var(--text-dark);
+        }
+
+        .community-card p {
+            font-size: 0.9rem;
+            margin: 0 0 var(--spacing-sm) 0;
+            color: var(--text-light);
+            line-height: 1.4;
+        }
+
+        .benefit-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-xs);
+        }
+
+        .benefit-tags span {
+            background: var(--background-alt);
+            color: var(--text-lighter);
+            padding: 0.2rem 0.5rem;
+            border-radius: var(--border-radius-sm);
+            font-size: 0.75rem;
+            border: 1px solid var(--border);
+        }
+
+        .community-cta {
+            text-align: center;
+            margin-top: 2rem;
+            padding: var(--spacing) 0;
+        }
+
+        .community-cta h3 {
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .community-cta p {
+            margin-bottom: var(--spacing);
         }
 
         /* Footer */
@@ -471,36 +689,173 @@
         }
 
         /* Responsive Design */
-        @media (max-width: 768px) {
+        
+        /* Extra Small Mobile (320px+) */
+        @media (max-width: 480px) {
+            :root {
+                --spacing: 0.75rem;
+                --spacing-sm: 0.5rem;
+            }
+            
+            .container {
+                padding: 0 var(--spacing-sm);
+            }
+            
+            .hero {
+                padding: 4rem 0 2rem;
+            }
+            
+            .section {
+                padding: 2rem 0;
+            }
+            
+            .card {
+                padding: var(--spacing-sm);
+            }
+            
+            .card-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-sm);
+            }
+            
+            .bot-lineage-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-xs);
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-sm);
+            }
+            
+            .features-compact-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-xs);
+            }
+            
+            .community-compact-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-xs);
+            }
+            
+            .btn-group {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+            }
+            
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+        
+        /* Small Mobile (481px - 767px) */
+        @media (min-width: 481px) and (max-width: 767px) {
+            .hero {
+                padding: 4.5rem 0 2.5rem;
+            }
+            
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .bot-lineage-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .features-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+            
+            .features-compact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .community-compact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .evolution-step-compact {
+                min-width: 120px;
+                max-width: 180px;
+            }
+        }
+        
+        /* Tablet Portrait (768px - 1023px) */
+        @media (min-width: 768px) and (max-width: 1023px) {
+            .hero {
+                padding: 5rem 0 3rem;
+            }
+            
+            .card-grid {
+                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+                gap: var(--spacing);
+            }
+            
+            .bot-lineage-grid {
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            }
+            
+            .features-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+            
+            .features-compact-grid {
+                grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            }
+            
+            .community-compact-grid {
+                grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            }
+            
+            .nav-links {
+                gap: var(--spacing);
+            }
+        }
+        
+        /* Mobile Navigation */
+        @media (max-width: 767px) {
             .nav-links {
                 display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(10, 10, 10, 0.98);
+                flex-direction: column;
+                padding: var(--spacing);
+                border-top: 1px solid var(--border);
+                backdrop-filter: blur(10px);
+            }
+            
+            .nav-links.active {
+                display: flex;
             }
 
             .mobile-menu-btn {
                 display: block;
             }
 
-            .hero {
-                padding: 6rem 0 4rem;
-            }
-
-            .btn-group {
+            .evolution-timeline-compact {
                 flex-direction: column;
-                align-items: center;
+                gap: var(--spacing-xs);
             }
 
-            .card-grid {
+            .evolution-step-compact {
+                min-width: auto;
+                max-width: none;
+                width: 100%;
+            }
+
+            .evolution-arrow {
+                transform: rotate(90deg);
+                font-size: 1.2rem;
+            }
+            
+            .footer-content {
                 grid-template-columns: 1fr;
-            }
-
-            .evolution-step {
-                flex-direction: column;
+                gap: var(--spacing);
                 text-align: center;
-            }
-
-            .evolution-step::before {
-                content: '↓';
-                margin: 1rem 0;
             }
         }
 
@@ -554,6 +909,7 @@
         <div class="container">
             <div class="hero-content fade-in">
                 <h1>Bot Garden</h1>
+                <h1>🧬</h1>
                 <p class="tagline">Simple bots, endless evolution</p>
                 <p class="description">
                     Start with Hello Bot, evolve into anything. Open-source Telegram bot templates 
@@ -577,23 +933,28 @@
                     Bot Garden reimagines software development as biological evolution.
                 </p>
                 
-                <div class="evolution-timeline">
-                    <div class="evolution-step">
-                        <div class="card">
-                            <h3>HB-001: Hello Bot</h3>
-                            <p>Simple greeting bot - your evolutionary foundation</p>
+                <div class="evolution-timeline-compact">
+                    <div class="evolution-step-compact">
+                        <div class="evolution-card">
+                            <div class="bot-badge">HB-001</div>
+                            <h4>Hello Bot</h4>
+                            <p>Simple foundation</p>
                         </div>
                     </div>
-                    <div class="evolution-step">
-                        <div class="card">
-                            <h3>HB-002: Hello AI Bot</h3>
-                            <p>AI-powered conversations with OpenAI integration</p>
+                    <div class="evolution-arrow">→</div>
+                    <div class="evolution-step-compact">
+                        <div class="evolution-card">
+                            <div class="bot-badge">HB-002</div>
+                            <h4>Hello AI Bot</h4>
+                            <p>OpenAI integration</p>
                         </div>
                     </div>
-                    <div class="evolution-step">
-                        <div class="card">
-                            <h3>Your Custom Bot</h3>
-                            <p>Evolve into whatever you need - unlimited possibilities</p>
+                    <div class="evolution-arrow">→</div>
+                    <div class="evolution-step-compact">
+                        <div class="evolution-card">
+                            <div class="bot-badge">HB-???</div>
+                            <h4>Your Bot</h4>
+                            <p>Unlimited evolution</p>
                         </div>
                     </div>
                 </div>
@@ -610,61 +971,56 @@ git push origin main</div>
     <section id="catalog" class="section section-alt">
         <div class="container">
             <div class="fade-in">
-                <h2>🌱 Current Bot Lineage</h2>
+                <h2>Current Bot Lineage</h2>
                 <p>Each bot is a complete, working system ready for production deployment.</p>
                 
-                <div class="card-grid">
+                <div class="bot-lineage-grid">
                     <!-- HB-001 Card -->
-                    <div class="card bot-card">
+                    <div class="bot-lineage-card">
                         <div class="bot-badge">HB-001</div>
                         <h3>Hello Bot</h3>
-                        <p>The simplest possible Telegram bot. Perfect foundation for any evolution.</p>
+                        <p>Simple Telegram bot foundation</p>
                         <div class="bot-stats">
-                            <span>📁 ~320 lines</span>
-                            <span>💾 128MB RAM</span>
-                            <span>⚡ <300ms response</span>
+                            <span>~320 lines</span>
+                            <span>128MB RAM</span>
+                            <span><300ms response</span>
                         </div>
-                        <div class="code-block" data-language="python">
-@router.message(CommandStart())
-async def start(message: Message):
-    await message.answer("Hello! I'm a simple bot.")</div>
-                        <a href="https://github.com/ivan-hilckov/hello-bot" class="btn btn-primary">Clone HB-001</a>
+                        <div class="code-preview">
+                            <code>await message.answer("Hello!")</code>
+                        </div>
+                        <a href="https://github.com/ivan-hilckov/hello-bot" class="btn btn-primary btn-compact">Clone HB-001</a>
                     </div>
 
                     <!-- HB-002 Card -->
-                    <div class="card bot-card">
+                    <div class="bot-lineage-card">
                         <div class="bot-badge">HB-002</div>
                         <h3>Hello AI Bot</h3>
-                        <p>Evolved from HB-001 with OpenAI integration for intelligent conversations.</p>
+                        <p>OpenAI integration for smart conversations</p>
                         <div class="bot-stats">
-                            <span>📁 ~450 lines</span>
-                            <span>💾 150MB RAM</span>
-                            <span>🤖 GPT-4 ready</span>
+                            <span>~450 lines</span>
+                            <span>150MB RAM</span>
+                            <span>GPT-4 ready</span>
                         </div>
-                        <div class="code-block" data-language="python">
-@router.message(Command("do"))
-async def ai_chat(message: Message):
-    response = await openai_service.chat(message.text)
-    await message.answer(response)</div>
-                        <a href="https://github.com/ivan-hilckov/hello-ai-bot" class="btn btn-primary">Clone HB-002</a>
+                        <div class="code-preview">
+                            <code>await openai_service.chat(text)</code>
+                        </div>
+                        <a href="https://github.com/ivan-hilckov/hello-ai-bot" class="btn btn-primary btn-compact">Clone HB-002</a>
                     </div>
 
                     <!-- Your Bot Card -->
-                    <div class="card bot-card">
+                    <div class="bot-lineage-card">
                         <div class="bot-badge">HB-???</div>
                         <h3>Your Bot Here</h3>
-                        <p>The next generation starts with you. Evolve from any existing bot.</p>
+                        <p>Next generation starts with you</p>
                         <div class="bot-stats">
                             <span>🧬 Your DNA</span>
-                            <span>🎯 Your goal</span>
-                            <span>🚀 Your evolution</span>
+                            <span>Your goal</span>
+                            <span>Your evolution</span>
                         </div>
-                        <div class="code-block" data-language="bash">
-# Start your evolution
-git clone hello-bot my-amazing-bot
-# Code with AI assistant
-# Push to deploy</div>
-                        <a href="https://github.com/ivan-hilckov/hello-bot" class="btn btn-secondary">Start Evolution</a>
+                        <div class="code-preview">
+                            <code>git clone hello-bot my-bot</code>
+                        </div>
+                        <a href="https://github.com/ivan-hilckov/hello-bot" class="btn btn-secondary btn-compact">Start Evolution</a>
                     </div>
                 </div>
             </div>
@@ -675,44 +1031,56 @@ git clone hello-bot my-amazing-bot
     <section id="features" class="section">
         <div class="container">
             <div class="fade-in">
-                <h2>🚀 Production-Ready Features</h2>
+                <h2>Production-Ready Features</h2>
                 <p>Every bot in Bot Garden is built for real-world deployment from day one.</p>
                 
-                <div class="features-grid">
-                    <div class="card">
-                        <div class="feature-icon">🤖</div>
-                        <h3>AI-Collaborative</h3>
-                        <p>Optimized for development with Claude, Cursor, ChatGPT, and other AI coding assistants.</p>
+                <div class="features-compact-grid">
+                    <div class="feature-compact">
+                        <div class="feature-icon-compact">AI</div>
+                        <div class="feature-content">
+                            <h4>AI-Collaborative</h4>
+                            <p>Built for Claude, Cursor, ChatGPT development</p>
+                        </div>
                     </div>
                     
-                    <div class="card">
-                        <div class="feature-icon">⚡</div>
-                        <h3>Zero-Config Deployment</h3>
-                        <p>Docker + GitHub Actions = automatic production deployment with single git push.</p>
+                    <div class="feature-compact">
+                        <div class="feature-icon-compact">GO</div>
+                        <div class="feature-content">
+                            <h4>Zero-Config Deploy</h4>
+                            <p>Docker + GitHub Actions = one git push</p>
+                        </div>
                     </div>
                     
-                    <div class="card">
-                        <div class="feature-icon">💾</div>
-                        <h3>Shared Infrastructure</h3>
-                        <p>Single PostgreSQL database supports multiple bots, reducing resource usage by 60%.</p>
+                    <div class="feature-compact">
+                        <div class="feature-icon-compact">DB</div>
+                        <div class="feature-content">
+                            <h4>Shared Infrastructure</h4>
+                            <p>Single PostgreSQL, 60% resource savings</p>
+                        </div>
                     </div>
                     
-                    <div class="card">
-                        <div class="feature-icon">🧬</div>
-                        <h3>Evolution Tracking</h3>
-                        <p>Clear genealogy from HB-001 onwards. Every bot knows its ancestors and descendants.</p>
+                    <div class="feature-compact">
+                        <div class="feature-icon-compact">🧬</div>
+                        <div class="feature-content">
+                            <h4>Evolution Tracking</h4>
+                            <p>Clear genealogy from HB-001 onwards</p>
+                        </div>
                     </div>
                     
-                    <div class="card">
-                        <div class="feature-icon">📈</div>
-                        <h3>Resource Optimized</h3>
-                        <p>Run 10+ bots on a 2GB VPS. Efficient containers and shared database architecture.</p>
+                    <div class="feature-compact">
+                        <div class="feature-icon-compact">OPT</div>
+                        <div class="feature-content">
+                            <h4>Resource Optimized</h4>
+                            <p>10+ bots on 2GB VPS, efficient containers</p>
+                        </div>
                     </div>
                     
-                    <div class="card">
-                        <div class="feature-icon">🔓</div>
-                        <h3>Open Source</h3>
-                        <p>MIT licensed, full source code access, no vendor lock-in, unlimited customization.</p>
+                    <div class="feature-compact">
+                        <div class="feature-icon-compact">MIT</div>
+                        <div class="feature-content">
+                            <h4>Open Source</h4>
+                            <p>MIT licensed, no vendor lock-in</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -723,47 +1091,47 @@ git clone hello-bot my-amazing-bot
     <section id="community" class="section section-alt">
         <div class="container">
             <div class="fade-in">
-                <h2>🤝 Join the Evolution</h2>
+                <h2>Join the Evolution</h2>
                 <p>Bot Garden grows through community collaboration. Every bot makes the ecosystem stronger.</p>
                 
-                <div class="card-grid">
-                    <div class="card">
-                        <h3>🌟 For Developers</h3>
-                        <p>Skip boilerplate, start building value immediately. Learn through working examples, not documentation.</p>
-                        <ul style="text-align: left; margin-top: 1rem;">
-                            <li>Production-ready templates</li>
-                            <li>AI-optimized development</li>
-                            <li>Community knowledge sharing</li>
-                            <li>Portfolio of deployed bots</li>
-                        </ul>
+                <div class="community-compact-grid">
+                    <div class="community-card">
+                        <h4>For Developers</h4>
+                        <p>Skip boilerplate, start building value immediately.</p>
+                        <div class="benefit-tags">
+                            <span>Production templates</span>
+                            <span>AI-optimized</span>
+                            <span>Knowledge sharing</span>
+                            <span>Portfolio ready</span>
+                        </div>
                     </div>
                     
-                    <div class="card">
-                        <h3>🚀 For Startups</h3>
-                        <p>Validate bot ideas without DevOps complexity. From MVP to production in hours.</p>
-                        <ul style="text-align: left; margin-top: 1rem;">
-                            <li>Rapid prototyping</li>
-                            <li>Linear scaling</li>
-                            <li>Cost-effective infrastructure</li>
-                            <li>No vendor lock-in</li>
-                        </ul>
+                    <div class="community-card">
+                        <h4>For Startups</h4>
+                        <p>Validate bot ideas without DevOps complexity.</p>
+                        <div class="benefit-tags">
+                            <span>Rapid prototyping</span>
+                            <span>Linear scaling</span>
+                            <span>Cost-effective</span>
+                            <span>No lock-in</span>
+                        </div>
                     </div>
                     
-                    <div class="card">
-                        <h3>🎓 For Learners</h3>
-                        <p>Complete curriculum from Hello Bot to advanced AI systems. Real projects, real deployment.</p>
-                        <ul style="text-align: left; margin-top: 1rem;">
-                            <li>Beginner to advanced path</li>
-                            <li>Modern Python patterns</li>
-                            <li>Industry-standard tools</li>
-                            <li>Deployable projects</li>
-                        </ul>
+                    <div class="community-card">
+                        <h4>For Learners</h4>
+                        <p>Complete curriculum from Hello Bot to AI systems.</p>
+                        <div class="benefit-tags">
+                            <span>Beginner to advanced</span>
+                            <span>Modern Python</span>
+                            <span>Industry tools</span>
+                            <span>Real deployment</span>
+                        </div>
                     </div>
                 </div>
 
-                <div style="text-align: center; margin-top: 3rem;">
+                <div class="community-cta">
                     <h3>Ready to Start Your Evolution?</h3>
-                    <p style="margin-bottom: 2rem;">Join thousands of developers building the future of Telegram bots.</p>
+                    <p>Join thousands of developers building the future of Telegram bots.</p>
                     <div class="btn-group">
                         <a href="https://github.com/ivan-hilckov/hello-bot" class="btn btn-primary">Clone Your First Bot</a>
                         <a href="https://github.com/ivan-hilckov" class="btn btn-secondary">View on GitHub</a>
@@ -805,7 +1173,7 @@ git clone hello-bot my-amazing-bot
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2025 Bot Garden. Built with ❤️ for the age of human-AI collaboration. MIT Licensed.</p>
+                <p>&copy; 2025 Bot Garden. Built for the age of human-AI collaboration. MIT Licensed.</p>
             </div>
         </div>
     </footer>
@@ -856,12 +1224,29 @@ git clone hello-bot my-amazing-bot
             observer.observe(el);
         });
 
-        // Mobile menu toggle (basic implementation)
+        // Mobile menu toggle (improved implementation)
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const navLinks = document.querySelector('.nav-links');
 
         mobileMenuBtn.addEventListener('click', () => {
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.textContent = '☰';
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.nav') && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.textContent = '☰';
+            }
         });
 
         // Copy code to clipboard
@@ -895,11 +1280,13 @@ git clone hello-bot my-amazing-bot
         });
 
         // Track bot card interactions
-        document.querySelectorAll('.bot-card a').forEach(link => {
+        document.querySelectorAll('.bot-card a, .bot-lineage-card a').forEach(link => {
             link.addEventListener('click', () => {
                 if (typeof ym !== 'undefined') {
+                    const card = link.closest('.bot-card') || link.closest('.bot-lineage-card');
+                    const botId = card.querySelector('.bot-badge').textContent.trim();
                     ym(103627063, 'reachGoal', 'bot-clone', {
-                        bot_id: link.closest('.bot-card').querySelector('.bot-badge').textContent.trim()
+                        bot_id: botId
                     });
                 }
             });
