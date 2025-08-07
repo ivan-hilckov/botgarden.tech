@@ -692,6 +692,10 @@
         
         /* Extra Small Mobile (320px+) */
         @media (max-width: 480px) {
+            html {
+                font-size: 12px;
+            }
+            
             :root {
                 --spacing: 0.75rem;
                 --spacing-sm: 0.5rem;
@@ -699,6 +703,7 @@
             
             .container {
                 padding: 0 var(--spacing-sm);
+                margin: 0 10px;
             }
             
             .hero {
@@ -751,6 +756,10 @@
         
         /* Small Mobile (481px - 767px) */
         @media (min-width: 481px) and (max-width: 767px) {
+            html {
+                font-size: 14px;
+            }
+            
             .hero {
                 padding: 4.5rem 0 2.5rem;
             }
@@ -908,8 +917,8 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content fade-in">
-                <h1>Bot Garden</h1>
-                <h1>🧬</h1>
+                <div style="height: 40px;"></div>
+                <h1>🧬 Bot Garden</h1>
                 <p class="tagline">Simple bots, endless evolution</p>
                 <p class="description">
                     Start with Hello Bot, evolve into anything. Open-source Telegram bot templates 
@@ -1136,6 +1145,18 @@ git push origin main</div>
                         <a href="https://github.com/ivan-hilckov/hello-bot" class="btn btn-primary">Clone Your First Bot</a>
                         <a href="https://github.com/ivan-hilckov" class="btn btn-secondary">View on GitHub</a>
                     </div>
+                    
+                    <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border);">
+                        <p style="font-size: 0.9rem; color: var(--text-lighter); margin-bottom: 0.5rem;">
+                            Created by <a href="https://github.com/ivan-hilckov" style="color: var(--primary-color);">Ivan Hilkov</a> 
+                            — Frontend Lead Engineer with 17+ years experience
+                        </p>
+                        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                            <a href="https://github.com/ivan-hilckov" style="color: var(--text-lighter); font-size: 0.85rem;">GitHub</a>
+                            <a href="https://gravatar.com/stmole" style="color: var(--text-lighter); font-size: 0.85rem;">Profile</a>
+                            <a href="https://t.me/mrbzzz" style="color: var(--text-lighter); font-size: 0.85rem;">Telegram</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1169,6 +1190,13 @@ git push origin main</div>
                     <a href="https://github.com/ivan-hilckov/hello-bot/discussions">GitHub Discussions</a>
                     <a href="https://github.com/ivan-hilckov/hello-bot/issues">Report Issues</a>
                     <a href="mailto:ivan@hilckov.com">Contact</a>
+                </div>
+                
+                <div>
+                    <h3>Author</h3>
+                    <a href="https://github.com/ivan-hilckov">GitHub Profile</a>
+                    <a href="https://gravatar.com/stmole">Gravatar Profile</a>
+                    <a href="https://t.me/mrbzzz">Telegram</a>
                 </div>
             </div>
             
