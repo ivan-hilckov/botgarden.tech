@@ -1,0 +1,23 @@
+{
+  "name": "botgarden-tech",
+  "version": "1.0.0",
+  "description": "Bot Garden - Evolutionary Telegram Bot Templates Landing Page",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx http-server public -p 3000 -o",
+    "build": "echo 'Building static assets...' && cp -r public dist",
+    "preview": "npx http-server dist -p 3001 -o"
+  },
+  "keywords": [
+    "telegram-bot",
+    "templates",
+    "ai-collaboration",
+    "evolution",
+    "bobiverse"
+  ],
+  "author": "Ivan Hilkov",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Bot Garden - Evolutionary Telegram Bot Templates | Simple Bots, Endless Evolution</title>
+    <meta name="description" content="Start with Hello Bot, evolve into anything. Open-source Telegram bot templates with AI integration, one-click deployment, and evolutionary genealogy. From simple greetings to complex AI assistants.">
+    <meta name="keywords" content="telegram bot templates, aiogram, python telegram bot, ai bot development, bot framework, open source, ai collaboration, evolutionary programming">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://botgarden.tech">
+    <meta property="og:title" content="Bot Garden - Evolutionary Bot Templates">
+    <meta property="og:description" content="Build production Telegram bots in hours through evolutionary templates. Start simple, grow complex with human-AI collaboration.">
+    <meta property="og:image" content="https://botgarden.tech/assets/images/og-image.png">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Bot Garden - Evolutionary Bot Templates">
+    <meta name="twitter:description" content="Create powerful Telegram bots through evolution. Open-source templates, AI integration, production deployment.">
+    <meta name="twitter:image" content="https://botgarden.tech/assets/images/twitter-image.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://botgarden.tech">
+    
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=103627063', 'ym');
+
+        ym(103627063, 'init', {ssr:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/103627063" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Bot Garden",
+        "applicationCategory": "DeveloperApplication",
+        "description": "Evolutionary Telegram bot templates that grow with your ambitions. From simple greetings to complex AI assistants, deploy production-ready bots in hours.",
+        "url": "https://botgarden.tech",
+        "author": {
+            "@type": "Person",
+            "name": "Ivan Hilkov"
+        },
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+    
+    <style>
+        /* CSS Variables - Dark Theme */
+        :root {
+            --primary-color: #00d4aa;
+            --secondary-color: #0088ff;
+            --accent-color: #ff6b35;
+            --text-dark: #ffffff;
+            --text-light: #b3b3b3;
+            --text-lighter: #888888;
+            --background: #0a0a0a;
+            --background-alt: #1a1a1a;
+            --surface: #262626;
+            --surface-hover: #333333;
+            --border: #333333;
+            --border-light: #404040;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.6);
+            --shadow-primary: 0 4px 20px rgba(0, 212, 170, 0.2);
+            --shadow-primary-hover: 0 8px 30px rgba(0, 212, 170, 0.3);
+            --gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            --gradient-dark: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            --max-width: 1200px;
+            --spacing: 1rem;
+            --border-radius: 12px;
+        }
+
+        /* Reset & Base Styles */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background: var(--background);
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+
+        h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+        h2 { font-size: clamp(2rem, 4vw, 3rem); }
+        h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            color: var(--text-light);
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Layout */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing);
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-alt {
+            background: var(--background-alt);
+        }
+
+        /* Header & Navigation */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-dark);
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius);
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background: var(--surface);
+            color: var(--primary-color);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 8rem 0 6rem;
+            background: var(--gradient-dark);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="%2300d4aa" opacity="0.1"/><circle cx="80" cy="40" r="3" fill="%230066cc" opacity="0.1"/><circle cx="40" cy="70" r="1.5" fill="%23ff6b35" opacity="0.1"/></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            margin-bottom: 1.5rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .tagline {
+            font-size: 1.5rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .hero .description {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+            box-shadow: var(--shadow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-primary-hover);
+            color: white;
+        }
+
+        .btn-secondary {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            background: transparent;
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--surface);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--border-light);
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        /* Bot Cards */
+        .bot-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bot-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient);
+        }
+
+        .bot-badge {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .bot-stats {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+            color: var(--text-lighter);
+        }
+
+        /* Code Blocks */
+        .code-block {
+            background: #0f0f0f;
+            color: #f8f8f2;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            position: relative;
+            border: 1px solid var(--border);
+        }
+
+        .code-block::before {
+            content: attr(data-language);
+            position: absolute;
+            top: 0.5rem;
+            right: 1rem;
+            font-size: 0.75rem;
+            color: var(--text-lighter);
+            text-transform: uppercase;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-icon {
+            width: 3rem;
+            height: 3rem;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        /* Evolution Timeline */
+        .evolution-timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .evolution-step {
+            display: flex;
+            align-items: center;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .evolution-step::before {
+            content: '→';
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin: 0 1rem;
+        }
+
+        .evolution-step:first-child::before {
+            display: none;
+        }
+
+        /* Footer */
+        .footer {
+            background: #050505;
+            color: white;
+            padding: 3rem 0 1rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .footer a {
+            color: #ccc;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border);
+            padding-top: 1rem;
+            text-align: center;
+            color: var(--text-lighter);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero {
+                padding: 6rem 0 4rem;
+            }
+
+            .btn-group {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .evolution-step {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .evolution-step::before {
+                content: '↓';
+                margin: 1rem 0;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Scroll Progress */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: var(--gradient);
+            z-index: 1001;
+            transition: width 0.1s ease;
+        }
+    </style>
+</head>
+<body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="container">
+            <div class="nav">
+                <div class="logo">Bot Garden</div>
+                <ul class="nav-links">
+                    <li><a href="#concept">Concept</a></li>
+                    <li><a href="#catalog">Catalog</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#community">Community</a></li>
+                </ul>
+                <button class="mobile-menu-btn">☰</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h1>Bot Garden</h1>
+                <p class="tagline">Simple bots, endless evolution</p>
+                <p class="description">
+                    Start with Hello Bot, evolve into anything. Open-source Telegram bot templates 
+                    with AI integration, one-click deployment, and evolutionary genealogy.
+                </p>
+                <div class="btn-group">
+                    <a href="https://github.com/ivan-hilckov/hello-bot" class="btn btn-primary">Start Your Bot Evolution</a>
+                    <a href="#catalog" class="btn btn-secondary">Explore Catalog</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Evolution Concept Section -->
+    <section id="concept" class="section">
+        <div class="container">
+            <div class="fade-in">
+                <h2>🧬 The Bot Evolution Concept</h2>
+                <p>
+                    Inspired by Dennis E. Taylor's "We Are Legion (We Are Bob)" series, 
+                    Bot Garden reimagines software development as biological evolution.
+                </p>
+                
+                <div class="evolution-timeline">
+                    <div class="evolution-step">
+                        <div class="card">
+                            <h3>HB-001: Hello Bot</h3>
+                            <p>Simple greeting bot - your evolutionary foundation</p>
+                        </div>
+                    </div>
+                    <div class="evolution-step">
+                        <div class="card">
+                            <h3>HB-002: Hello AI Bot</h3>
+                            <p>AI-powered conversations with OpenAI integration</p>
+                        </div>
+                    </div>
+                    <div class="evolution-step">
+                        <div class="card">
+                            <h3>Your Custom Bot</h3>
+                            <p>Evolve into whatever you need - unlimited possibilities</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-block" data-language="bash">
+# Two commands to deployment
+git clone hello-bot my-bot
+git push origin main</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bot Catalog Section -->
+    <section id="catalog" class="section section-alt">
+        <div class="container">
+            <div class="fade-in">
+                <h2>🌱 Current Bot Lineage</h2>
+                <p>Each bot is a complete, working system ready for production deployment.</p>
+                
+                <div class="card-grid">
+                    <!-- HB-001 Card -->
+                    <div class="card bot-card">
+                        <div class="bot-badge">HB-001</div>
+                        <h3>Hello Bot</h3>
+                        <p>The simplest possible Telegram bot. Perfect foundation for any evolution.</p>
+                        <div class="bot-stats">
+                            <span>📁 ~320 lines</span>
+                            <span>💾 128MB RAM</span>
+                            <span>⚡ <300ms response</span>
+                        </div>
+                        <div class="code-block" data-language="python">
+@router.message(CommandStart())
+async def start(message: Message):
+    await message.answer("Hello! I'm a simple bot.")</div>
+                        <a href="https://github.com/ivan-hilckov/hello-bot" class="btn btn-primary">Clone HB-001</a>
+                    </div>
+
+                    <!-- HB-002 Card -->
+                    <div class="card bot-card">
+                        <div class="bot-badge">HB-002</div>
+                        <h3>Hello AI Bot</h3>
+                        <p>Evolved from HB-001 with OpenAI integration for intelligent conversations.</p>
+                        <div class="bot-stats">
+                            <span>📁 ~450 lines</span>
+                            <span>💾 150MB RAM</span>
+                            <span>🤖 GPT-4 ready</span>
+                        </div>
+                        <div class="code-block" data-language="python">
+@router.message(Command("do"))
+async def ai_chat(message: Message):
+    response = await openai_service.chat(message.text)
+    await message.answer(response)</div>
+                        <a href="https://github.com/ivan-hilckov/hello-ai-bot" class="btn btn-primary">Clone HB-002</a>
+                    </div>
+
+                    <!-- Your Bot Card -->
+                    <div class="card bot-card">
+                        <div class="bot-badge">HB-???</div>
+                        <h3>Your Bot Here</h3>
+                        <p>The next generation starts with you. Evolve from any existing bot.</p>
+                        <div class="bot-stats">
+                            <span>🧬 Your DNA</span>
+                            <span>🎯 Your goal</span>
+                            <span>🚀 Your evolution</span>
+                        </div>
+                        <div class="code-block" data-language="bash">
+# Start your evolution
+git clone hello-bot my-amazing-bot
+# Code with AI assistant
+# Push to deploy</div>
+                        <a href="https://github.com/ivan-hilckov/hello-bot" class="btn btn-secondary">Start Evolution</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="section">
+        <div class="container">
+            <div class="fade-in">
+                <h2>🚀 Production-Ready Features</h2>
+                <p>Every bot in Bot Garden is built for real-world deployment from day one.</p>
+                
+                <div class="features-grid">
+                    <div class="card">
+                        <div class="feature-icon">🤖</div>
+                        <h3>AI-Collaborative</h3>
+                        <p>Optimized for development with Claude, Cursor, ChatGPT, and other AI coding assistants.</p>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Zero-Config Deployment</h3>
+                        <p>Docker + GitHub Actions = automatic production deployment with single git push.</p>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="feature-icon">💾</div>
+                        <h3>Shared Infrastructure</h3>
+                        <p>Single PostgreSQL database supports multiple bots, reducing resource usage by 60%.</p>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="feature-icon">🧬</div>
+                        <h3>Evolution Tracking</h3>
+                        <p>Clear genealogy from HB-001 onwards. Every bot knows its ancestors and descendants.</p>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="feature-icon">📈</div>
+                        <h3>Resource Optimized</h3>
+                        <p>Run 10+ bots on a 2GB VPS. Efficient containers and shared database architecture.</p>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="feature-icon">🔓</div>
+                        <h3>Open Source</h3>
+                        <p>MIT licensed, full source code access, no vendor lock-in, unlimited customization.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section id="community" class="section section-alt">
+        <div class="container">
+            <div class="fade-in">
+                <h2>🤝 Join the Evolution</h2>
+                <p>Bot Garden grows through community collaboration. Every bot makes the ecosystem stronger.</p>
+                
+                <div class="card-grid">
+                    <div class="card">
+                        <h3>🌟 For Developers</h3>
+                        <p>Skip boilerplate, start building value immediately. Learn through working examples, not documentation.</p>
+                        <ul style="text-align: left; margin-top: 1rem;">
+                            <li>Production-ready templates</li>
+                            <li>AI-optimized development</li>
+                            <li>Community knowledge sharing</li>
+                            <li>Portfolio of deployed bots</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>🚀 For Startups</h3>
+                        <p>Validate bot ideas without DevOps complexity. From MVP to production in hours.</p>
+                        <ul style="text-align: left; margin-top: 1rem;">
+                            <li>Rapid prototyping</li>
+                            <li>Linear scaling</li>
+                            <li>Cost-effective infrastructure</li>
+                            <li>No vendor lock-in</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>🎓 For Learners</h3>
+                        <p>Complete curriculum from Hello Bot to advanced AI systems. Real projects, real deployment.</p>
+                        <ul style="text-align: left; margin-top: 1rem;">
+                            <li>Beginner to advanced path</li>
+                            <li>Modern Python patterns</li>
+                            <li>Industry-standard tools</li>
+                            <li>Deployable projects</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 3rem;">
+                    <h3>Ready to Start Your Evolution?</h3>
+                    <p style="margin-bottom: 2rem;">Join thousands of developers building the future of Telegram bots.</p>
+                    <div class="btn-group">
+                        <a href="https://github.com/ivan-hilckov/hello-bot" class="btn btn-primary">Clone Your First Bot</a>
+                        <a href="https://github.com/ivan-hilckov" class="btn btn-secondary">View on GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3>Bot Garden</h3>
+                    <p>Evolutionary Telegram bot templates inspired by the Bobiverse. Start simple, evolve infinitely.</p>
+                </div>
+                
+                <div>
+                    <h3>Quick Links</h3>
+                    <a href="https://github.com/ivan-hilckov/hello-bot">Hello Bot (HB-001)</a>
+                    <a href="https://github.com/ivan-hilckov/hello-ai-bot">Hello AI Bot (HB-002)</a>
+                    <a href="https://github.com/ivan-hilckov">GitHub Profile</a>
+                </div>
+                
+                <div>
+                    <h3>Resources</h3>
+                    <a href="https://docs.aiogram.dev/">aiogram Documentation</a>
+                    <a href="https://core.telegram.org/bots/api">Telegram Bot API</a>
+                    <a href="https://cursor.sh/">Cursor AI Editor</a>
+                </div>
+                
+                <div>
+                    <h3>Community</h3>
+                    <a href="https://github.com/ivan-hilckov/hello-bot/discussions">GitHub Discussions</a>
+                    <a href="https://github.com/ivan-hilckov/hello-bot/issues">Report Issues</a>
+                    <a href="mailto:ivan@hilckov.com">Contact</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Bot Garden. Built with ❤️ for the age of human-AI collaboration. MIT Licensed.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.offsetTop;
+                    const offsetPosition = elementPosition - headerOffset;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Scroll progress bar
+        function updateScrollProgress() {
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            document.querySelector('.scroll-progress').style.width = scrollPercent + '%';
+        }
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Mobile menu toggle (basic implementation)
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Copy code to clipboard
+        document.querySelectorAll('.code-block').forEach(block => {
+            block.addEventListener('click', () => {
+                navigator.clipboard.writeText(block.textContent.trim());
+                
+                // Visual feedback
+                const originalBg = block.style.background;
+                block.style.background = '#1a1a1a';
+                setTimeout(() => {
+                    block.style.background = originalBg;
+                }, 200);
+                
+                // Track code copy event
+                if (typeof ym !== 'undefined') {
+                    ym(103627063, 'reachGoal', 'code-copy');
+                }
+            });
+        });
+
+        // Track CTA button clicks
+        document.querySelectorAll('.btn-primary').forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (typeof ym !== 'undefined') {
+                    ym(103627063, 'reachGoal', 'cta-click', {
+                        button_text: btn.textContent.trim()
+                    });
+                }
+            });
+        });
+
+        // Track bot card interactions
+        document.querySelectorAll('.bot-card a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (typeof ym !== 'undefined') {
+                    ym(103627063, 'reachGoal', 'bot-clone', {
+                        bot_id: link.closest('.bot-card').querySelector('.bot-badge').textContent.trim()
+                    });
+                }
+            });
+        });
+
+        // Event listeners
+        window.addEventListener('scroll', updateScrollProgress);
+        window.addEventListener('load', () => {
+            // Add visible class to hero content immediately
+            document.querySelector('.hero .fade-in').classList.add('visible');
+        });
+
+        // Performance optimization: passive event listeners
+        window.addEventListener('scroll', updateScrollProgress, { passive: true });
+    </script>
+</body>
+</html>

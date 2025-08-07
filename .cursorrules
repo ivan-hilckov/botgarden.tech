@@ -1,0 +1,160 @@
+# Bot Garden Cursor Rules
+# Правила для AI-ассистента в экосистеме Bot Garden
+
+## 🎯 Проект контекст
+- **Название**: Bot Garden (botgarden.tech)
+- **Цель**: Эволюционные шаблоны Telegram ботов
+- **Технологии**: HTML/CSS/JS (frontend), Docker/Nginx (production)
+- **Архитектура**: Статический сайт с deployment automation
+
+## 🛠 Технический стек
+- **Frontend**: Vanilla HTML5, CSS3, JavaScript (ES6+)
+- **Build**: npm scripts для development сервера
+- **Production**: Docker + Nginx
+- **Deployment**: SSH + Docker Compose automation
+- **Analytics**: Yandex.Metrika с goal tracking
+
+## 📋 Стандарты кодирования
+
+### HTML
+- Используй семантические теги (`<main>`, `<section>`, `<article>`)
+- Обязательны alt атрибуты для изображений
+- Open Graph и Twitter Cards метатеги
+- Structured Data (JSON-LD) для SEO
+
+### CSS
+- Mobile-first responsive design
+- CSS Grid для основных layout
+- Flexbox для компонентов
+- CSS Custom Properties (variables)
+- Избегай !important
+- Используй BEM methodology для классов
+
+### JavaScript
+- ES6+ syntax (const/let, arrow functions, modules)
+- Async/await для асинхронных операций
+- Event delegation для оптимизации
+- Избегай глобальных переменных
+- TypeScript комментарии для документации
+
+### Performance
+- Optimize изображения (WebP, правильные размеры)
+- Minify CSS/JS для production
+- Lazy loading для non-critical ресурсов
+- Preload критически важные ресурсы
+
+## 🎨 UI/UX принципы
+- **Accessibility**: WCAG 2.1 AA compliance
+- **Mobile-first**: Начинай с мобильной версии
+- **Progressive enhancement**: Работа без JavaScript
+- **Loading states**: Показывай прогресс загрузки
+- **Error handling**: Graceful fallbacks
+
+## 📦 Структура файлов
+```
+public/
+├── index.html              # Главная страница
+├── assets/
+│   ├── images/            # Оптимизированные изображения
+│   ├── css/               # Стили (если выносятся отдельно)
+│   └── js/                # Скрипты (если выносятся отдельно)
+└── favicon.ico/svg        # Иконки сайта
+```
+
+## 🚀 Development workflow
+- `npm run dev` - локальная разработка на порту 3000
+- `npm run build` - сборка для production
+- `npm run preview` - предпросмотр production сборки
+- Используй браузерные dev tools для отладки
+- Тестируй на реальных устройствах
+
+## 🔧 Environment setup
+- Скопируй `env.example` в `.env` для настроек
+- Настрой VPS параметры для deployment
+- Используй `./setup-vps.sh` для первоначальной настройки
+- Deploy через `./deploy-vps.sh production`
+
+## 📊 Analytics & SEO
+- Yandex.Metrika counter ID: 103627063
+- Goals: `code-copy`, `cta-click`, `bot-clone`
+- Lighthouse score target: 95+
+- Core Web Vitals optimization
+- Structured data для поисковых систем
+
+## 🐳 Docker & Deployment
+- Multi-stage Dockerfile для оптимизации размера
+- Nginx конфигурация в `nginx.conf`
+- Health check endpoint: `/health`
+- Gzip compression включен
+- Security headers настроены
+
+## 🔒 Безопасность
+- CSP (Content Security Policy) headers
+- HTTPS only (secure cookies)
+- Sanitize пользовательский input
+- No sensitive data в client-side коде
+
+## 🎯 Bot Garden специфика
+- Поддерживай концепцию "evolutionary bot templates"
+- HB-XXX naming convention для bot references
+- Links на GitHub репозитории ботов
+- Integrate с Bobiverse тематикой (subtle references)
+
+## 📝 Комментарии и документация
+- Комментируй сложную логику
+- JSDoc для функций
+- README обновляй при изменениях
+- Change log для major updates
+
+## 🤖 AI Assistant Communication
+- Отчеты должны быть краткими: 3-4 предложения максимум
+- Каждый шаг описывать в одно предложение
+- Избегать избыточных объяснений и повторений
+- Фокус на результат, а не на процесс
+
+## 🧪 Тестирование
+- Мануальное тестирование на разных устройствах
+- Browser compatibility (Chrome, Firefox, Safari, Edge)
+- Performance testing (Lighthouse, PageSpeed)
+- Accessibility testing (axe, WAVE)
+
+## 🚫 Что избегать
+- jQuery или тяжелые frameworks (проект статический)
+- Inline styles (используй классы)
+- Hardcoded значения (используй CSS variables)
+- Blocking JavaScript в `<head>`
+- Неоптимизированные изображения
+
+## 💡 Оптимизация советы
+- Используй `loading="lazy"` для изображений
+- Preconnect к внешним ресурсам
+- Minify HTML в production
+- Cache static assets
+- Optimize font loading (font-display: swap)
+
+## 🎨 Design система
+- Consistent color palette (CSS variables)
+- Typography scale (headings, body text)
+- Spacing система (rem units)
+- Component-based подход
+- Dark/light theme support (если нужно)
+
+## 📱 Responsive breakpoints
+```css
+/* Mobile first */
+@media (min-width: 768px) { /* Tablet */ }
+@media (min-width: 1024px) { /* Desktop */ }
+@media (min-width: 1440px) { /* Large desktop */ }
+```
+
+## 🔄 Git workflow
+- Feature branches для новых функций
+- Meaningful commit messages
+- No commits в master/main directly
+- Squash commits при необходимости
+
+---
+
+**Важно**: При любых изменениях проверяй работоспособность на production like environment перед deployment!
+
+🤖✨ Bot Garden растёт через эволюцию - каждое улучшение делает экосистему сильнее!
